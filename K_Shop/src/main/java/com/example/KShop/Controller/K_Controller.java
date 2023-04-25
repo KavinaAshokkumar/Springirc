@@ -44,6 +44,12 @@ public class K_Controller {
 	kser.deleteInfo(itno);
 	return " Item Number " + itno + " is deleted ";
     }
+	@DeleteMapping("/deleteByReq")
+	public String deleteByRequestPara(@RequestParam("itemNo")int itNo)
+	{
+		kser.deleteInfo(itNo);
+		return " Item Number "+ itNo + " is deleted ";
+	}
 
 	
 }
