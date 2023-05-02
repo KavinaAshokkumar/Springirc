@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.KShop.DataBase.Database_table;
+import com.example.KShop.Repositary.K_Repositary;
 import com.example.KShop.Service.K_Service;
 
 @RestController
@@ -50,6 +51,42 @@ public class K_Controller {
 		kser.deleteInfo(itNo);
 		return " Item Number "+ itNo + " is deleted ";
 	}
-
+	//sort by descending order
+	
+	@GetMapping("/sortasc/{item}")
+	public List<Database_table> sortPlayer(@PathVariable("item") String Item)
+	{
+		return kser.sortdesc(Item);
+	}
+	//pagination
+	@GetMapping("/paginationSorting/{pno}/{psize}")
+	public List<Database_table> paginationData(@PathVariable("pno") int pno, @PathVariable("psize") int psize)
+	{
+		return kser.paginationData(pno, psize);
+	}
+	
+	//pagination and sorting
+	@GetMapping("/paginationSorting/{pno}/{psize}/{item}")
+	public List<Database_table> paginationAndSorting(@PathVariable ("pno") int pno,@PathVariable("psize") int psize,@PathVariable("item") String item)
+	{
+		return kser.paginationAndSorting(pno, psize, item);
+	}
+	@Autowired
+	public K_Repositary krepo;
+	
+	@GetMapping("SaveK_shop")
+	public List<Database_table> getD()
+	{
+		return krepo.getAllData();
+	}
+	
+	@GetMapping("byItemName/{item_no}")
+	public List<Database_table> getName(@PathVariable("item_no") int num)
+	{
+		return krepo.byItemName(num);
+	}
+	
+	
+    
 	
 }
