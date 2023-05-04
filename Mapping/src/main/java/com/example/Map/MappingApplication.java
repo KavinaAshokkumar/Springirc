@@ -1,4 +1,4 @@
-package com.example.KShop;
+package com.example.Map;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,19 +10,19 @@ import io.swagger.v3.oas.annotations.info.Info;
 @SpringBootApplication
 @OpenAPIDefinition(
 info =@Info(
-	title = "K's Boutique",
-	version = "1.1.2",
-		description = "A Fashion Project",
+	title = "Mapping",
+	version = "1.1.3",
+		description = "One to Many",
 	contact = @Contact(
 				name = "Kavina Ashokkumar",
 				email = "727821tuec107@skct.edu.in"
 				)
 		)
 )
-public class KShopApplication {
+public class MappingApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(KShopApplication.class, args);
+		SpringApplication.run(MappingApplication.class, args);
 	}
 
 }
